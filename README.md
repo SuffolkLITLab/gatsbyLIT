@@ -108,7 +108,7 @@ The purpose of this repository is to recreate as accurately as possible the orig
 
 ## Things to note
 
-1)	This repository alone will **NOT** allow you to run the website on your local machine. Together with the source code (provided here) you will need to download the Gatsby CLI (instructions provided in the **Quick Start** section above) as well as the necessary plugins used (according to **` gatsby-config.js`**). 
+1)	This repository alone will **NOT** allow you to run the website on your local machine. Together with the source code (provided here) you will need to download the Gatsby CLI (instructions provided in the **Quick Start** section above) as well as the necessary plugins used (mentioned in **` gatsby-config.js`**). 
 
 
 <!-- AUTO-GENERATED-CONTENT:END -->
