@@ -110,5 +110,5 @@ The purpose of this repository is to recreate as accurately as possible the orig
 
 1)	This repository alone will **NOT** allow you to run the website on your local machine. Together with the source code (provided here) you will need to download the Gatsby CLI (instructions provided in the **Quick Start** section above) as well as the necessary plugins used (mentioned in **` gatsby-config.js`**). 
 2)	Do **NOT** clone the repository in a OneDrive folder. An attempt to run **`gatsby develop`** inside a folder managed by OneDrive will result into an error.
-
+3)	The API keys required to access the website content through Contentful are not included for privacy reasons.
 <!-- AUTO-GENERATED-CONTENT:END -->
