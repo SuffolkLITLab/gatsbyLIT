@@ -106,5 +106,9 @@ Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby f
 
 The purpose of this repository is to recreate as accurately as possible the original [courtformsonline.org](https://courtformsonline.org/) website with the use of Gatsby. The content is fetched almost entirely from Contentful, a headless CMS platform that allows you to update and edit your website through a user-friendly API.  
 
+## Things to note
+
+1)	This repository alone will **NOT** allow you to run the website on your local machine. Together with the source code (provided here) you will need to download the Gatsby CLI (instructions provided in the Quick Start section above) as well as the necessary plugins used (according to **` gatsby-config.js`**). 
+
 
 <!-- AUTO-GENERATED-CONTENT:END -->
