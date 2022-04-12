@@ -104,7 +104,7 @@ Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby f
 
 ## Purpose
 
-The purpose of this repository is to recreate as accurately as possible the original courtformsonline.org website with the use of Gatsby. The content is fetched almost entirely from Contentful, a platform that allows you to update and edit your website through a user-friendly API.  
+The purpose of this repository is to recreate as accurately as possible the original [courtformsonline.org](https://courtformsonline.org/) website with the use of Gatsby. The content is fetched almost entirely from Contentful, a platform that allows you to update and edit your website through a user-friendly API.  
 
 
 <!-- AUTO-GENERATED-CONTENT:END -->
