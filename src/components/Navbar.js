@@ -4,6 +4,7 @@ import { FiAlignJustify } from "react-icons/fi"
 import logo from "../assets/images/LIT_logo.jpg"
 import { NavDropdown } from "react-bootstrap"
 import ShowCats from "./Categories"
+import "../assets/css/main.css"
 
 const NavBar = () => {
   const [show, setShow] = useState(false)

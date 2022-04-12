@@ -83,7 +83,7 @@ const LogosGQL = () => {
                     </div>
                   )
                 } else {
-                  return <b key={index}></b> // NOT PROPER DISCUSS
+                  return <b key={index}></b>
                 }
               })}
             </div>
@@ -114,7 +114,7 @@ const LogosGQL = () => {
                     </div>
                   )
                 } else {
-                  return <b key={index}></b> // NOT PROPER DISCUSS
+                  return <b key={index}></b>
                 }
               })}
             </div>
@@ -144,7 +144,7 @@ const LogosGQL = () => {
                     </div>
                   )
                 } else {
-                  return <b key={index}></b> // NOT PROPER DISCUSS
+                  return <b key={index}></b>
                 }
               })}
             </div>
