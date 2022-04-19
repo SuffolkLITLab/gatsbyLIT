@@ -113,5 +113,14 @@ The purpose of this repository is to recreate as accurately as possible the orig
 3)	The API keys required to access the website content through Contentful are not included for privacy reasons.
 4)	As mentioned above, this repository makes use of a headless CMS named ***Contentful***. In order for Gatsby to fetch and display the data from Contentful, GraphQL needs to be used. GraphQL is a place where you create queries using your data from Contentful. **It is strongly adviced to spend some time understanding how to create and manipulate these queries, they are an intergral part of this project** . After using the **`gatsby develop`** command, along with the prompt that says the port number of the localhost in which the website resides, you will see a URL for GraphQL. Use that to create/edit your queries. 
 
+## Structure of project
+
+- The **src** folder contains the code that builds the website. Inside you will find the following: 
+  - The **components** folder that contains the components that build the skeleton of the website like the navigation bar at the top, the dropdown menu of categories, the footer etc. 
+  - The **context** folder that contains the global variables shared among all pages (i.e. the context the website is currently in). These variables include the english and spanish translations. 
+  - The **pages** folder that contains all the pages of the website. Their content is fetched entirely from **contentful**. 
+  - The **assets** folder that contains the CSS and images used. 
+
+
 
 <!-- AUTO-GENERATED-CONTENT:END -->
