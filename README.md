@@ -119,7 +119,7 @@ The purpose of this repository is to recreate as accurately as possible the orig
 ## Structure of project
 
 - The **src** folder contains the code that builds the website. Inside you will find: 
-  - The **components** folder that contains the components that build the skeleton of the website like the navigation bar at the top, the dropdown menu of categories, the footer etc. 
+  - The **components** folder that contains the components which build the skeleton of the website like the navigation bar at the top, the dropdown menu of categories, the footer etc. 
   - The **context** folder that contains the global variables shared among all pages (i.e. the context the website is currently in). These variables include the english and spanish translations. 
   - The **pages** folder that contains all the pages of the website. Their content is fetched entirely from **contentful**. 
   - The **assets** folder that contains the CSS and images used. 
