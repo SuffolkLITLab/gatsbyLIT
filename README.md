@@ -1,4 +1,30 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
+
+## Purpose
+
+The purpose of this repository is to recreate as accurately as possible the original [courtformsonline.org](https://courtformsonline.org/) website with the use of Gatsby. The content is fetched almost entirely from Contentful, a headless CMS platform that allows you to update and edit your website through a user-friendly API.  
+
+## Things to note
+
+1)	This repository alone will **NOT** allow you to run the website on your local machine. Together with the source code (provided here) you will need to download the Gatsby CLI (instructions provided in the **Quick Start** section above) as well as the necessary plugins used (mentioned in **`gatsby-config.js`**). 
+2)	Do **NOT** clone the repository in a OneDrive folder. An attempt to run **`gatsby develop`** inside a folder managed by OneDrive will result into an error.
+3)	The API keys required to access the website content through Contentful are not included for privacy reasons.
+4)	As mentioned above, this repository makes use of a headless CMS named ***Contentful***. In order for Gatsby to fetch and display the data from Contentful, GraphQL needs to be used. GraphQL is a place where you create queries using your data from Contentful. **It is strongly adviced to spend some time understanding how to create and manipulate these queries, they are an intergral part of this project** . After using the **`gatsby develop`** command, along with the prompt that says the port number of the localhost in which the website resides, you will see a URL for GraphQL. Use that to create/edit your queries. 
+5)	Since Gatsby is a react-based framework, you will be able to see changes after saving the modified files. If no changes are discerned, refresh the page. 
+6)	When you make a modification while the server runs, you might see an error in your browswer. If the error doest not disappear after rehreshing, your code must be checked.
+7)	Before using **`gatsby develop`** in your terminal to start your server, it is recommended to clear the cache with the **`gatsby clean`** command.
+
+## Structure of project
+
+- The **src** folder contains the code that builds the website. Inside you will find: 
+  - The **components** folder that contains the components which build the skeleton of the website like the navigation bar at the top, the dropdown menu of categories, the footer etc. 
+  - The **context** folder that contains the global variables shared among all pages (i.e. the context the website is currently in). These variables include the english and spanish translations. 
+  - The **pages** folder that contains all the pages of the website. Their content is fetched entirely from **contentful**. 
+  - The **assets** folder that contains the CSS and images used. 
+- The rest of the folders are obtained when creating a gatsby project (**after** downloading the Gatsby CLI). 
+- ***DON'T*** forget to download the necessary plugins mentioned in the **`gatsby-config.js`** file. 
+
+
 <p align="center">
   <a href="https://www.gatsbyjs.com">
     <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
@@ -101,31 +127,6 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 [Build, Deploy, and Host On The Only Cloud Built For Gatsby](https://www.gatsbyjs.com/products/cloud/)
 
 Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby framework that combines a modern developer experience with an optimized, global edge network.
-
-## Purpose
-
-The purpose of this repository is to recreate as accurately as possible the original [courtformsonline.org](https://courtformsonline.org/) website with the use of Gatsby. The content is fetched almost entirely from Contentful, a headless CMS platform that allows you to update and edit your website through a user-friendly API.  
-
-## Things to note
-
-1)	This repository alone will **NOT** allow you to run the website on your local machine. Together with the source code (provided here) you will need to download the Gatsby CLI (instructions provided in the **Quick Start** section above) as well as the necessary plugins used (mentioned in **`gatsby-config.js`**). 
-2)	Do **NOT** clone the repository in a OneDrive folder. An attempt to run **`gatsby develop`** inside a folder managed by OneDrive will result into an error.
-3)	The API keys required to access the website content through Contentful are not included for privacy reasons.
-4)	As mentioned above, this repository makes use of a headless CMS named ***Contentful***. In order for Gatsby to fetch and display the data from Contentful, GraphQL needs to be used. GraphQL is a place where you create queries using your data from Contentful. **It is strongly adviced to spend some time understanding how to create and manipulate these queries, they are an intergral part of this project** . After using the **`gatsby develop`** command, along with the prompt that says the port number of the localhost in which the website resides, you will see a URL for GraphQL. Use that to create/edit your queries. 
-5)	Since Gatsby is a react-based framework, you will be able to see changes after saving the modified files. If no changes are discerned, refresh the page. 
-6)	When you make a modification while the server runs, you might see an error in your browswer. If the error doest not disappear after rehreshing, your code must be checked.
-7)	Before using **`gatsby develop`** in your terminal to start your server, it is recommended to clear the cache with the **`gatsby clean`** command.
-
-## Structure of project
-
-- The **src** folder contains the code that builds the website. Inside you will find: 
-  - The **components** folder that contains the components which build the skeleton of the website like the navigation bar at the top, the dropdown menu of categories, the footer etc. 
-  - The **context** folder that contains the global variables shared among all pages (i.e. the context the website is currently in). These variables include the english and spanish translations. 
-  - The **pages** folder that contains all the pages of the website. Their content is fetched entirely from **contentful**. 
-  - The **assets** folder that contains the CSS and images used. 
-- The rest of the folders are obtained when creating a gatsby project (**after** downloading the Gatsby CLI). 
-- ***DON'T*** forget to download the necessary plugins mentioned in the **`gatsby-config.js`** file. 
-
 
 
 <!-- AUTO-GENERATED-CONTENT:END -->
