@@ -28,7 +28,7 @@ The purpose of this repository is to recreate as accurately as possible the orig
 - Make sure you have Node.js installed (https://nodejs.org/en/download/)
 - Make sure you have Git installed (https://github.com/git-guides/install-git)
 - Then proceed with downloading the Gatsby Command Line Interface (CLI) (https://www.gatsbyjs.com/docs/tutorial/part-0/#gatsby-cli)
-- Make sure you have you favorite code editor installed. Visual Studio Code is recommended. 
+- Make sure you have your favorite code editor installed. Visual Studio Code is recommended. 
     - It doesn’t matter what code editor you choose to use. Your site will end up looking the same, no matter what tool you use to write it. But the      Gatsby documentation sometimes includes screenshots that were taken in VS Code, so using VS Code will make sure that your screen looks like the screenshots in the tutorial and docs.
   
 ## To employ the courtformsonline site: 
