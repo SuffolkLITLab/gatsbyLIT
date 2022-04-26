@@ -24,6 +24,7 @@ The purpose of this repository is to recreate as accurately as possible the orig
 - The rest of the folders are obtained when creating a gatsby project (**after** downloading the Gatsby CLI). 
 - ***DON'T*** forget to download the necessary plugins mentioned in the **`gatsby-config.js`** file. 
 
+Below you will find documentation created by Gatsby developers. **Please read carefuly**.
 
 <p align="center">
   <a href="https://www.gatsbyjs.com">
