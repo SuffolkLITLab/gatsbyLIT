@@ -169,6 +169,7 @@ const query = graphql`
     allContentfulForm(
       filter: {
         metadata: { tags: { elemMatch: { name: { eq: "Consumer & Debt" } } } }
+        node_locale: { eq: "en-US" }
       }
       sort: { fields: priority, order: ASC }
     ) {

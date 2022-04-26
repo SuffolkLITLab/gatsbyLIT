@@ -63,7 +63,7 @@
   --backgroundColor: var(--grey-0);
   --textColor: var(--grey-1000);
   --borderRadius: 0.25rem;
-  --letterSpacing: 1spx;
+  --letterSpacing: 1px;
   --transition: 0.3s ease-in-out all;
   --max-width: 1120px;
   --fixed-width: 600px;
@@ -696,6 +696,7 @@ form > *:last-child {
 .button.btn.btn-primary {
   width: 100%;
   height: 80%;
+  vertical-align: middle;
 }
 /* gatsby image */
 .gatsby-image-wrapper.gatsby-image-wrapper-constrained.logo_img {
@@ -703,17 +704,18 @@ form > *:last-child {
   /* display: inline-block; */
   width: 40px;
   height: 40px;
-  margin-bottom: 10px;
-  margin-top: 5px;
+  margin-top: 4px;
+  
 }
 /* button span */
 span.logo_text {
   display: flex;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 17px;
   letter-spacing: var(--letterSpacing);
   margin-top: 1rem;
-  margin-left: 4vw;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
   vertical-align: middle;
   width: 70%;
   font-weight: bold;
@@ -722,10 +724,11 @@ span.logo_text {
 
 .show_table_btn {
   cursor: pointer;
-  width: 10rem;
-  margin-left: auto;
+  width: 10.5rem;
+  margin-left:auto;
   margin-right: auto;
   color: var(--lit-0);
+  text-align: center;
 }
 
 .show_table_btn:hover {
@@ -750,9 +753,6 @@ span.logo_text {
     height: 30px;
     margin-right: 5px;
   }
-  span.logo_text {
-    margin-top: 0.6rem;
-  }
 }
 
 @media screen and (max-width: 1090px) {
@@ -760,20 +760,12 @@ span.logo_text {
     grid-template-columns: 1fr 1fr;
   }
 }
-@media screen and (max-width: 661px) {
+@media screen and (max-width: 705px) {
   .cat-buttons {
     grid-template-columns: 1fr;
   }
 }
 
-@media screen and (max-width: 341px) {
-  span.logo_text {
-    line-height: normal;
-    width: auto;
-    vertical-align: middle;
-    margin-top: 0.6rem;
-  }
-}
 
 /*#########*/
 /* Footer */

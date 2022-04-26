@@ -1,16 +1,23 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { Link } from "gatsby"
 import { FiAlignJustify } from "react-icons/fi"
 import logo from "../assets/images/LIT_logo.jpg"
 import { NavDropdown } from "react-bootstrap"
 import ShowCats from "./Categories"
 import "../assets/css/main.css"
+import {
+  globalDispatchContext,
+  globalStateContext,
+} from "../context/globalContextProvider"
 
-const NavBar = () => {
+const NavBar = props => {
+  const dispatch = useContext(globalDispatchContext)
+  const state = useContext(globalStateContext)
+
   const [show, setShow] = useState(false)
   // const [logoIsVisible, setLogo] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
-  const [isClicked, setIsClicked] = useState(false)
+  // const [isClicked, setIsClicked] = useState(false)
 
   return (
     <main>
@@ -38,7 +45,7 @@ const NavBar = () => {
               activeClassName="active-link"
               onClick={() => setShow(false)} //when you go to another page, the nav drop-down menu closes
             >
-              about us
+              {state.lang === "en-US" ? "about us" : "Quienes Somos"}
             </Link>
             <Link
               to="/news"
@@ -46,7 +53,7 @@ const NavBar = () => {
               activeClassName="active-link"
               onClick={() => setShow(false)}
             >
-              news
+              {state.lang === "en-US" ? "news" : "Noticias"}
             </Link>
             <Link
               to="/myforms"
@@ -54,21 +61,33 @@ const NavBar = () => {
               activeClassName="active-link"
               onClick={() => setShow(false)}
             >
-              my forms
+              {state.lang === "en-US" ? "my forms" : "Mis Formularios"}
             </Link>
 
             <NavDropdown
               id="nav-dropdown-dark-example"
-              title="Languages"
+              title={state.lang === "en-US" ? "Languages" : "Idiomas"}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
-              onToggle={() => setIsClicked(!isClicked)}
-              show={isClicked || isHovered}
+              // onToggle={() => setIsClicked(!isClicked)}
+              show={isHovered}
               className="nav-drop"
             >
-              <NavDropdown.Item href="/">English</NavDropdown.Item>
+              <NavDropdown.Item
+                /*onClick={() => props.setLang("en-US")}*/ onClick={() => {
+                  dispatch({ type: "CHANGE_ENG" })
+                }}
+              >
+                English
+              </NavDropdown.Item>
 
-              <NavDropdown.Item href="/">Español</NavDropdown.Item>
+              <NavDropdown.Item
+                /*onClick={() => props.setLang("es")}*/ onClick={() => {
+                  dispatch({ type: "CHANGE_ES" })
+                }}
+              >
+                Español
+              </NavDropdown.Item>
             </NavDropdown>
           </div>
         </div>

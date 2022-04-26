@@ -139,7 +139,10 @@ const options = {
 const query = graphql`
   {
     allContentfulForm(
-      filter: { metadata: { tags: { elemMatch: { name: { eq: "Housing" } } } } }
+      filter: {
+        metadata: { tags: { elemMatch: { name: { eq: "Housing" } } } }
+        node_locale: { eq: "en-US" }
+      }
       sort: { fields: priority, order: ASC }
     ) {
       nodes {

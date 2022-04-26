@@ -145,6 +145,7 @@ const query = graphql`
     allContentfulForm(
       filter: {
         metadata: { tags: { elemMatch: { name: { eq: "Safety of Others" } } } }
+        node_locale: {eq: "en-US"}
       }
       sort: { fields: priority, order: ASC }
     ) {

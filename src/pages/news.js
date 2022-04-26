@@ -115,14 +115,17 @@ const options = {
         },
       })
 
-      return <li>{UnTaggedChildren}</li>
+      return <li style={{ fontSize: "medium" }}>{UnTaggedChildren}</li>
     },
   },
 }
 
 const query = graphql`
   {
-    allContentfulBlogPost(sort: { fields: updated, order: DESC }) {
+    allContentfulBlogPost(
+      filter: { node_locale: { eq: "en-US" } }
+      sort: { fields: updated, order: DESC }
+    ) {
       nodes {
         updated
         title

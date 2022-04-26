@@ -120,6 +120,7 @@ const query = graphql`
         metadata: {
           tags: { elemMatch: { name: { eq: "Income and Benefits" } } }
         }
+        node_locale: { eq: "en-US" }
       }
       sort: { fields: priority, order: ASC }
     ) {

@@ -175,6 +175,7 @@ const query = graphql`
         metadata: {
           tags: { elemMatch: { name: { eq: "Health and Mental Health" } } }
         }
+        node_locale: { eq: "en-US" }
       }
       sort: { fields: priority, order: ASC }
     ) {

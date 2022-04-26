@@ -1,23 +1,37 @@
-import React from "react"
-import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
-import { Link } from "gatsby"
+import React, { useContext } from "react"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+// import { Link } from "gatsby"
 import { graphql, useStaticQuery } from "gatsby"
 import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import Layout from "./Layout"
+import GlobalContextProvider, {
+  globalDispatchContext,
+  globalStateContext,
+} from "../context/globalContextProvider"
+// import NavBar from "./Navbar"
+// import Footer from "./Footer"
 
 const LogosGQL = () => {
+  // const [lang, setLang] = useState("en-US")
+  const state = useContext(globalStateContext)
+  const dispatch = useContext(globalDispatchContext)
   const data = useStaticQuery(query)
-  const paragraphs = data.allContentfulAboutUs.nodes //entire collection of elements (paragraphs of page in this case)
-  const pathToImage_1 = getImage(paragraphs[0].pictures[0]) //paragrapg 0 contains the video call image
-  const pathToImage_2 = getImage(paragraphs[2].pictures[0])
+
+  const paragraphs_us = data.us.nodes //entire collection of elements (paragraphs of page in this case)
+  const paragraphs_es = data.es.nodes
+  const pathToImage_1 = getImage(paragraphs_us[0].pictures[0]) //paragrapg 0 contains the video call image
+  const pathToImage_2 = getImage(paragraphs_us[2].pictures[0])
+
+  console.log(state.lang)
+
   return (
     <Layout>
       <div className="white_band">
         <div className="content_bar">
           <div className="content_bar_in_text">
             <center>
-              <h1>About Us</h1>
+              <h1>{state.lang === "en-US" ? "About Us" : "Sobre Nosotros"}</h1>
             </center>
           </div>
         </div>
@@ -32,19 +46,25 @@ const LogosGQL = () => {
                 className="about_video_call"
               ></GatsbyImage>
               <div className="caption">
-                screen shot from one of our{" "}
+                {state.lang === "en-US"
+                  ? "screen shot from one of our "
+                  : "CAPTURA DE PANTALLA DE UNA DE NUESTRAS "}
                 <a
                   href="https://www.youtube.com/playlist?list=PLy6i9GFGw5GzcPqGyZQ06lPp35v6S5-YF"
                   style={{ textDecoration: "underline" }}
                 >
-                  regular meeting calls
+                  {state.lang === "en-US"
+                    ? "regular meeting calls"
+                    : "LLAMADAS DE REUNIONES"}
                 </a>
               </div>
             </div>
             {/* {firstRichContent.map((page, index) => {
         return renderRichText(page.content, options)
       })} */}
-            {renderRichText(paragraphs[0].content, options)}
+            {state.lang === "en-US"
+              ? renderRichText(paragraphs_us[0].content, options)
+              : renderRichText(paragraphs_es[0].content, options)}
           </div>
         </div>
       </div>
@@ -52,12 +72,18 @@ const LogosGQL = () => {
       <div className="white_band">
         <div className="content_bar">
           <div className="content_bar_in">
-            <h2>{paragraphs[1].title}</h2>
+            <h2>
+              {state.lang === "en-US"
+                ? paragraphs_us[1].title
+                : paragraphs_es[1].title}
+            </h2>
             <p className="p_bar">
-              {renderRichText(paragraphs[1].content, options)}
+              {state.lang === "en-US"
+                ? renderRichText(paragraphs_us[1].content, options)
+                : renderRichText(paragraphs_es[1].content, options)}
             </p>
             <div className="content_bar_logos_1">
-              {paragraphs[1].pictures.map((img, index) => {
+              {paragraphs_us[1].pictures.map((img, index) => {
                 const pathToLogo = getImage(img)
 
                 if (index <= 3) {
@@ -88,7 +114,7 @@ const LogosGQL = () => {
               })}
             </div>
             <div className="content_bar_logos_2">
-              {paragraphs[1].pictures.map((img, index) => {
+              {paragraphs_us[1].pictures.map((img, index) => {
                 const pathToLogo = getImage(img)
 
                 if (index > 3 && index <= 8) {
@@ -119,7 +145,7 @@ const LogosGQL = () => {
               })}
             </div>
             <div className="content_bar_logos_3">
-              {paragraphs[1].pictures.map((img, index) => {
+              {paragraphs_us[1].pictures.map((img, index) => {
                 const pathToLogo = getImage(img)
                 if (index > 8) {
                   const h = img.description.split(" ")[0]
@@ -154,15 +180,19 @@ const LogosGQL = () => {
       <div className="white_band">
         <div className="content_bar">
           <div className="content_bar_in">
-            <h2 style={{ textAligh: "center" }}>{paragraphs[2].title}</h2>
+            <h2 style={{ textAligh: "center" }}>
+              {state.lang === "en-US"
+                ? paragraphs_us[2].title
+                : paragraphs_es[2].title}
+            </h2>
             <p className="p_bar">
-              {renderRichText(paragraphs[2].content, options)}
+              {renderRichText(paragraphs_us[2].content, options)}
             </p>
             <div className="content_bar_logos">
               <a href="https://www.mass.gov/orgs/massachusetts-court-system">
                 <GatsbyImage
                   image={pathToImage_2}
-                  alt={paragraphs[2].pictures[0].title}
+                  alt={paragraphs_us[2].pictures[0].title}
                   className="logo"
                   style={{ height: "90px", width: "90px" }}
                 ></GatsbyImage>
@@ -200,7 +230,27 @@ const options = {
 }
 const query = graphql`
   {
-    allContentfulAboutUs(sort: { fields: priority, order: ASC }) {
+    us: allContentfulAboutUs(
+      filter: { node_locale: { eq: "en-US" } }
+      sort: { fields: priority, order: ASC }
+    ) {
+      nodes {
+        title
+        content {
+          raw
+        }
+        contentful_id
+        pictures {
+          gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
+          description
+          title
+        }
+      }
+    }
+    es: allContentfulAboutUs(
+      filter: { node_locale: { eq: "es" } }
+      sort: { fields: priority, order: ASC }
+    ) {
       nodes {
         title
         content {

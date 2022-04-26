@@ -1,11 +1,17 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { Button, Dropdown } from "react-bootstrap"
 import { StaticImage } from "gatsby-plugin-image"
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io"
 import { Link } from "gatsby"
+import {
+  globalDispatchContext,
+  globalStateContext,
+} from "../context/globalContextProvider"
 
 const ShowCats = props => {
   const [show, setShow] = useState(false)
+
+  const state = useContext(globalStateContext)
   return (
     <div className="categories">
       <div className={show ? "cat-buttons show-cats" : "cat-buttons"}>
@@ -19,7 +25,9 @@ const ShowCats = props => {
               className="logo_img"
               as="section"
             ></StaticImage>
-            <span className="logo_text">Housing</span>
+            <span className="logo_text">
+              {state.lang === "en-US" ? "Housing" : "Alojamiento"}
+            </span>
           </Button>{" "}
         </Link>
         <Link to="/domesticViolence">
@@ -33,7 +41,11 @@ const ShowCats = props => {
               as="section"
             ></StaticImage>
 
-            <span className="logo_text">Domestic Violence</span>
+            <span className="logo_text">
+              {state.lang === "en-US"
+                ? "Domestic Violence"
+                : "Violencia Domestica"}
+            </span>
           </Button>{" "}
         </Link>
         <Link to="/appeals">
@@ -47,7 +59,9 @@ const ShowCats = props => {
               as="section"
             ></StaticImage>
 
-            <span className="logo_text">Appeals</span>
+            <span className="logo_text">
+              {state.lang === "en-US" ? "Appeals" : "Apelaciones"}
+            </span>
           </Button>{" "}
         </Link>
         <Link to="/familyLaw">
@@ -61,7 +75,9 @@ const ShowCats = props => {
               as="section"
             ></StaticImage>
 
-            <span className="logo_text">Family Law</span>
+            <span className="logo_text">
+              {state.lang === "en-US" ? "Family Law" : "Ley Familiar"}
+            </span>
           </Button>{" "}
         </Link>
         <Link to="/guardianship">
@@ -75,7 +91,9 @@ const ShowCats = props => {
               as="section"
             ></StaticImage>
 
-            <span className="logo_text">Guardianship</span>
+            <span className="logo_text">
+              {state.lang === "en-US" ? "Guardianship" : "Guarda y Custodia"}
+            </span>
           </Button>{" "}
         </Link>
         <Link to="/employment">
@@ -90,7 +108,9 @@ const ShowCats = props => {
             ></StaticImage>
 
             <span className="logo_text" style={{ marginLeft: "3vw" }}>
-              Employment/Unemployment
+              {state.lang === "en-US"
+                ? "Employment/Unemployment"
+                : "Empleo / Desempleo"}
             </span>
           </Button>{" "}
         </Link>
@@ -105,7 +125,9 @@ const ShowCats = props => {
               as="section"
             ></StaticImage>
 
-            <span className="logo_text">Consumer & Debt</span>
+            <span className="logo_text">
+              {state.lang === "en-US" ? "Consumer & Debt" : "Deuda"}
+            </span>
           </Button>{" "}
         </Link>
         <Link to="/health">
@@ -119,7 +141,11 @@ const ShowCats = props => {
               as="section"
             ></StaticImage>
 
-            <span className="logo_text">Health & Mental Health</span>
+            <span className="logo_text">
+              {state.lang === "en-US"
+                ? "Health & Mental Health"
+                : "Salud y Salud Mental"}
+            </span>
           </Button>{" "}
         </Link>
         <Link to="/income">
@@ -133,7 +159,11 @@ const ShowCats = props => {
               as="section"
             ></StaticImage>
 
-            <span className="logo_text">Income & Benefits</span>
+            <span className="logo_text">
+              {state.lang === "en-US"
+                ? "Income & Benefits"
+                : "Ingreso y Beneficios"}
+            </span>
           </Button>{" "}
         </Link>
         <Link to="/immigration">
@@ -147,7 +177,9 @@ const ShowCats = props => {
               as="section"
             ></StaticImage>
 
-            <span className="logo_text">Immigration</span>
+            <span className="logo_text">
+              {state.lang === "en-US" ? "Immigration" : "Inmigración"}
+            </span>
           </Button>{" "}
         </Link>
         <Link to="/safetyOthers">
@@ -161,7 +193,11 @@ const ShowCats = props => {
               as="section"
             ></StaticImage>
 
-            <span className="logo_text">Safety of Others</span>
+            <span className="logo_text">
+              {state.lang === "en-US"
+                ? "Safety of Others"
+                : "Seguridad de Otros"}
+            </span>
           </Button>{" "}
         </Link>
         <Link to="/other">
@@ -175,13 +211,22 @@ const ShowCats = props => {
               as="section"
             ></StaticImage>
 
-            <span className="logo_text">Other</span>
+            <span className="logo_text">
+              {state.lang === "en-US" ? "Other" : "Más"}
+            </span>
           </Button>{" "}
         </Link>
       </div>
       <Dropdown onClick={() => setShow(!show)}>
-        <div className="show_table_btn">
-          {show ? "Hide" : "Show"} Categories
+        <div className="show_table_btn" style={{ fontSize: "17px" }}>
+          {state.lang === "en-US"
+            ? show
+              ? "Hide"
+              : "Show"
+            : show
+            ? "Esconde"
+            : "Muestra"}{" "}
+          {state.lang === "en-US" ? "Categories" : "Categorias"}
           <div className="arrow">
             {show ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
           </div>

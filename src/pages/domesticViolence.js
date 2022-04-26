@@ -163,7 +163,8 @@ const query = graphql`
   {
     allContentfulForm(
       filter: {
-        metadata: { tags: { elemMatch: { name: { eq: "Domestic Violence" } } } }
+        metadata: { tags: { elemMatch: { name: { eq: "Domestic Violence" } } } },
+        node_locale: {eq: "en-US"}
       }
       sort: { fields: priority, order: ASC }
     ) {
