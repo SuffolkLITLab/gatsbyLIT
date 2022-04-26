@@ -11,7 +11,7 @@ The purpose of this repository is to recreate as accurately as possible the orig
 3)	The API keys required to access the website content through Contentful are not included for privacy reasons.
 4)	As mentioned above, this repository makes use of a headless CMS named ***Contentful***. In order for Gatsby to fetch and display the data from Contentful, GraphQL needs to be used. GraphQL is a place where you create queries using your data from Contentful. **It is strongly adviced to spend some time understanding how to create and manipulate these queries, they are an intergral part of this project** . After using the **`gatsby develop`** command, along with the prompt that says the port number of the localhost in which the website resides, you will see a URL for GraphQL. Use that to create/edit your queries. 
 5)	Since Gatsby is a react-based framework, you will be able to see changes after saving the modified files. If no changes are discerned, refresh the page. 
-6)	When you make a modification while the server runs, you might see an error in your browswer. If the error doest not disappear after rehreshing, your code must be checked.
+6)	When you make a modification while the server runs, you might see an error in your browswer. If the error does not disappear after rehreshing, your code must be checked for errors.
 7)	Before using **`gatsby develop`** in your terminal to start your server, it is recommended to clear the cache with the **`gatsby clean`** command.
 
 ## Structure of project
