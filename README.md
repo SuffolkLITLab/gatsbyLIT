@@ -1,4 +1,56 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
+
+## Purpose
+
+The purpose of this repository is to recreate as accurately as possible the original [courtformsonline.org](https://courtformsonline.org/) website with the use of Gatsby. The content is fetched almost entirely from Contentful, a headless CMS platform that allows you to update and edit your website through a user-friendly API.  
+
+## Things to note
+
+1)	This repository alone will **NOT** allow you to run the website on your local machine. Together with the source code (provided here) you will need to download the Gatsby CLI (instructions provided in the **Quick Start** section above) as well as the necessary plugins used (mentioned in **`gatsby-config.js`**). 
+2)	Do **NOT** clone the repository in a OneDrive folder. An attempt to run **`gatsby develop`** inside a folder managed by OneDrive will result into an error.
+3)	The API keys required to access the website content through Contentful are not included for privacy reasons.
+4)	As mentioned above, this repository makes use of a headless CMS named ***Contentful***. In order for Gatsby to fetch and display the data from Contentful, GraphQL needs to be used. GraphQL is a place where you create queries using your data from Contentful. **It is strongly adviced to spend some time understanding how to create and manipulate these queries, they are an intergral part of this project** . After using the **`gatsby develop`** command, along with the prompt that says the port number of the localhost in which the website resides, you will see a URL for GraphQL. Use that to create/edit your queries. 
+5)	Since Gatsby is a react-based framework, you will be able to see changes after saving the modified files. If no changes are discerned, refresh the page. 
+6)	When you make a modification while the server runs, you might see an error in your browswer. If the error does not disappear after rehreshing, your code must be checked for errors.
+7)	Before using **`gatsby develop`** in your terminal to start your server, it is recommended to clear the cache with the **`gatsby clean`** command.
+
+## Structure of project
+
+- The **src** folder contains the code that builds the website. Inside you will find: 
+  - The **components** folder that contains the components which build the skeleton of the website like the navigation bar at the top, the dropdown menu of categories, the footer etc. 
+  - The **context** folder that contains the global variables shared among all pages (i.e. the context the website is currently in). These variables include the english and spanish translations. 
+  - The **pages** folder that contains all the pages of the website. Their content is fetched entirely from **contentful**. 
+  - The **assets** folder that contains the CSS and images used. 
+- The rest of the folders are obtained when creating a gatsby project (**after** downloading the Gatsby CLI). 
+- ***DON'T*** forget to download the necessary plugins mentioned in the **`gatsby-config.js`** file. 
+
+## To get started with Gatsby: 
+- Make sure you have Node.js installed (https://nodejs.org/en/download/)
+- Make sure you have Git installed (https://github.com/git-guides/install-git)
+- Then proceed with downloading the Gatsby Command Line Interface (CLI) (https://www.gatsbyjs.com/docs/tutorial/part-0/#gatsby-cli)
+- Make sure you have your favorite code editor installed. Visual Studio Code is recommended. 
+    - It doesn’t matter what code editor you choose to use. Your site will end up looking the same, no matter what tool you use to write it. But the      Gatsby documentation sometimes includes screenshots that were taken in VS Code, so using VS Code will make sure that your screen looks like the screenshots in the tutorial and docs.
+  
+## To employ the courtformsonline site: 
+
+- Before running the code source above, make sure you have the necessary plugins installed. In the following examples, npm is the package manager being used. However, yarn will achieve the same outcome. 
+  1. **`npm i react-bootstrap`** (for styles and bootstrap components)
+  2. **`npm install gatsby-source-contentful`** (contentful plugin, don't forget to include it in **`gatsby-config.js`** by following https://www.gatsbyjs.com/plugins/gatsby-source-contentful/). **PLEASE NOTE** that the project makes use of contentful tags. You need to add an additional line (that is, **`enableTags: true`**) in the options object of your **`gatsby-source-contentful`** plugin in in the  **`gatsby-config.js`** file. Not including this, will result into an error when compiling. It is also recommended to create a separate file (.env.development) to save your contentful API key. An easy way to do it is the following: 
+    - Create a new file with the name .env.development in the your project folder and include the following line **`CONTENTFUL_API_KEY = ...`** where ... is your API key.
+    - Go to **`gatsby-config.js`** and include:
+      **`require("dotenv").config({
+          path: `.env.${process.env.NODE_ENV}`,
+        })`**
+      at the very top.
+    - Include **`accessToken: process.env.CONTENTFUL_API_KEY`** in the options object of your **`gatsby-source-contentful`**          plugin. 
+  4. **`npm install gatsby-plugin-styled-components styled-components babel-plugin-styled-components`** (for global styles and style wrappers, don't forget to include it in **`gatsby-config.js`** by following https://www.gatsbyjs.com/plugins/gatsby-plugin-styled-components/)
+  5. **`npm install gatsby-plugin-image gatsby-plugin-sharp gatsby-source-filesystem gatsby-transformer-sharp`** (to make use of gatsby images, don't forget to include it in **`gatsby-config.js`** by following https://www.gatsbyjs.com/plugins/gatsby-plugin-image/)
+  6. **`npm install gatsby-source-filesystem`** (this will allow you to query your files if needed, don't forget to include it in **`gatsby-config.js`** by following https://www.gatsbyjs.com/plugins/gatsby-source-filesystem/)
+  7. See https://www.gatsbyjs.com/docs/gatsby-config/ for further documentation on gatsby plugins. 
+
+
+Below you will find documentation created by Gatsby developers. **Please read carefuly**.
+
 <p align="center">
   <a href="https://www.gatsbyjs.com">
     <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
