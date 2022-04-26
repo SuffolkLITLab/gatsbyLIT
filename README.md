@@ -24,6 +24,30 @@ The purpose of this repository is to recreate as accurately as possible the orig
 - The rest of the folders are obtained when creating a gatsby project (**after** downloading the Gatsby CLI). 
 - ***DON'T*** forget to download the necessary plugins mentioned in the **`gatsby-config.js`** file. 
 
+## Necessary downloads
+  # To get started with Gatsby: 
+- Make sure you have Node.js installed (https://nodejs.org/en/download/)
+- Make sure you have Git installed (https://github.com/git-guides/install-git)
+- Then proceed with downloading the Gatsby Command Line Interface (CLI) (https://www.gatsbyjs.com/docs/tutorial/part-0/#gatsby-cli)
+- Make sure you have you favorite code editor installed. Visual Studio Code is recommended. 
+    - It doesn’t matter what code editor you choose to use. Your site will end up looking the same, no matter what tool you use to write it. But the      Gatsby documentation sometimes includes screenshots that were taken in VS Code, so using VS Code will make sure that your screen looks like the screenshots in the tutorial and docs.
+  # To employ the courtformsonline site: 
+- Before running the code source above, make sure you have the necessary plugins installed. In the following examples, npm is the package manager being used. However, yarn will achieve the same outcome. 
+  1. npm i react-bootstrap (for styles and bootstrap components)
+  2. npm install gatsby-source-contentful (contentful plugin, don't forget to include it in **`gatsby-config.js`** by following https://www.gatsbyjs.com/plugins/gatsby-source-contentful/). **PLEASE NOTE** that the project makes use of contentful tags. You need to add an additional line (that is, **`enableTags: true`**) in the options object of your **`gatsby-source-contentful`** plugin in in the  **`gatsby-config.js`** file. Not including this, will result into an error when compiling. It is also recommended to create a separate file (.env.development) to save your contentful API key. An easy way to do it is the following: 
+    - Create a new file with the name .env.development in the your project folder and include the following line **`CONTENTFUL_API_KEY = ...`** where ... is your API key.
+    - Go to **`gatsby-config.js`** and include:
+      **`require("dotenv").config({
+          path: `.env.${process.env.NODE_ENV}`,
+        })`**
+      at the very top.
+    - Include **`accessToken: process.env.CONTENTFUL_API_KEY`** in the options object of your **`gatsby-source-contentful`**          plugin. 
+  4. npm install gatsby-plugin-styled-components styled-components babel-plugin-styled-components (for global styles and style wrappers, don't forget to include it in **`gatsby-config.js`** by following https://www.gatsbyjs.com/plugins/gatsby-plugin-styled-components/)
+  5. npm install gatsby-plugin-image gatsby-plugin-sharp gatsby-source-filesystem gatsby-transformer-sharp (to make use of gatsby images, don't forget to include it in **`gatsby-config.js`** by following https://www.gatsbyjs.com/plugins/gatsby-plugin-image/)
+  6. npm install gatsby-source-filesystem (this will allow you to query your files if needed, don't forget to include it in **`gatsby-config.js`** by following https://www.gatsbyjs.com/plugins/gatsby-source-filesystem/)
+  7. See https://www.gatsbyjs.com/docs/gatsby-config/ for further documentation on gatsby plugins. 
+
+
 Below you will find documentation created by Gatsby developers. **Please read carefuly**.
 
 <p align="center">
